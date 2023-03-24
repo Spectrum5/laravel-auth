@@ -15,8 +15,10 @@
 
         <div class="row md-4">
             <div class="col">
-                <form action="{{ route('admin.posts.store') }}" method="POST">
+                <form action="{{ route('admin.posts.update' $post->id) }}" method="POST">
                     @csrf
+
+                    @method('PUT')
 
                     <div class="mb-3">
                         <label for="title" class="form-label">
@@ -27,7 +29,7 @@
                         class="form-control" 
                         id="title" name="title" 
                         required maxlength="128" 
-                        value="{{ old('title') }}"
+                        value="{{ old('title', $post->title) }}"
                         placeholder="Inserisci il titolo..">
                     </div>
 
@@ -40,7 +42,7 @@
                         rows="10" id="content" 
                         name="content" 
                         required maxlength="4096"
-                        placeholder="Inserisci il contenuto..">{{ old('title') }}</textarea>
+                        placeholder="Inserisci il contenuto..">{{ old('content', $post->content) }}</textarea>
                     </div>
 
                     <div>
@@ -50,8 +52,8 @@
                     </div>
 
                     <div>
-                        <button type="submit" class="btn btn-success">
-                            Aggiungi
+                        <button type="submit" class="btn btn-warning">
+                            Aggiorna
                         </button>
                     </div>
                 </form>
