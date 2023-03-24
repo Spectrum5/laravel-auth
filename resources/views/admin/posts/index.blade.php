@@ -35,12 +35,19 @@
                                     <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">
                                         Dettagli
                                     </a>
-                                    <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-warning">
+
+                                    <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning">
                                         Aggiorna
                                     </a>
-                                    <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-danger">
-                                        Elimina
-                                    </a>
+
+                                    <form class="d-inline-block" action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                        @csrf
+                                        @method("DELETE")
+                                        
+                                        <button class="btn btn-danger">
+                                            Elimina
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

@@ -95,7 +95,7 @@ class PostController extends Controller
         $data = $request->validated();
 
         $data['slug'] = Str::slug($data['title']);
-        
+
         $post->update($data);
 
         return redirect()->route('admin.posts.show', $post->id)->with('success', 'Post aggiornato con successo!');
@@ -109,6 +109,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        dd($post);
     }
 }
