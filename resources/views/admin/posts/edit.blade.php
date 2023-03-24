@@ -10,7 +10,9 @@
             </div>
         </div>
 
-        {{-- Aggiungo partials errors --}}
+        {{-- Aggiungo partials errors e success --}}
+        @include('partials.success')
+
         @include('partials.errors')
 
         <div class="row md-4">

@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+// Helpers
+use Illuminate\Validation\Rule;
+
 class UpdatePostRequest extends FormRequest
 {
     /**
@@ -24,7 +27,11 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts,title|max:128',
+            'title' => [
+                'required',
+                Rule::unique('posts')->ignore($this->post),
+                'max:128'
+            ],
             'content' => 'required|max:4096'
         ];
     }
