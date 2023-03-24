@@ -7,6 +7,9 @@ use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 
+// Helpers
+use Illuminate\Support\Str;
+
 class PostController extends Controller
 {
     /**
@@ -40,8 +43,22 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
+        $data = $request->validated();
 
-        dd($request->all());
+        $data['slug'] = Str::slug($data['title']);
+        // dd($data);
+        $newPost = Post::create($data);
+
+        return redirect()->route('admin.posts.show', $newPost->id)->with('success', 'Post aggiunto con successo!');
+
+        //  ---------- ALTERNATIVA ----------
+        // $slug = Str::slug($data['title']);
+
+        // $newPost = Post::create([
+        //     'title' => $data['title'],
+        //     'slug' => $slug,
+        //     'content' => $data['content']
+        // ]);
     }
 
     /**
