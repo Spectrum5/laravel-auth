@@ -14,6 +14,9 @@
             </div>
         </div>
 
+        {{-- Aggiungo partials success --}}
+        @include('partials.success')
+
         <div class="row">
             <div class="col">
                 <table class="table">
@@ -43,7 +46,7 @@
                                     <form class="d-inline-block" action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
                                         @csrf
                                         @method("DELETE")
-                                        
+
                                         <button class="btn btn-danger">
                                             Elimina
                                         </button>
