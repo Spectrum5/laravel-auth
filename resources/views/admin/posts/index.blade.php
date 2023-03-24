@@ -43,7 +43,11 @@
                                         Aggiorna
                                     </a>
 
-                                    <form class="d-inline-block" action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                    <form 
+                                        class="d-inline-block" 
+                                        action="{{ route('admin.posts.destroy', $post->id) }}" 
+                                        method="POST"
+                                        onsubmit="return confirm('sei sicuro di voler eliminare questo post?');">
                                         @csrf
                                         @method("DELETE")
 
