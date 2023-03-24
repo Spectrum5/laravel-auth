@@ -33,18 +33,24 @@
 
                     <div class="mb-3">
                         <label for="title" class="form-label">
-                            Titolo
+                            Titolo <span class="text-danger">*</span>
                         </label>
-                        <input type="text" class="form-control" id="title" name="title" required maxlength="128"
+                        <input type="text" class="form-control" id="title" name="title" required maxlength="128" value="{{ old('title') }}"
                             placeholder="Inserisci il titolo..">
                     </div>
 
                     <div class="mb-3">
                         <label for="content" class="form-label">
-                            Contenuto
+                            Contenuto <span class="text-danger">*</span>
                         </label>
                         <textarea class="form-control" rows="10" id="content" name="content" required maxlength="4096"
-                            placeholder="Inserisci il contenuto.."></textarea>
+                            placeholder="Inserisci il contenuto..">{{ old('title') }}</textarea>
+                    </div>
+
+                    <div>
+                        <p>
+                            N.B. i campi contrassegnati con <span class="text-danger">*</span> sono obbligatori
+                        </p>
                     </div>
 
                     <div>
