@@ -4,11 +4,8 @@
     <div class="row justify-content-center md-4">
         <div class="col">
 
-            @if (session('success'))
-                <div class="alert alert-success mb-4">
-                    {{ session('success') }}
-                </div>
-            @endif
+            {{-- Aggiungo partials errors --}}
+            @include('partials.success')
 
             <h1>
                 {{ $post->title }}
