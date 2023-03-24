@@ -5,7 +5,7 @@
         <div class="row justify-content-center md-4">
             <div class="col">
                 <h1>
-                    Crea Post
+                    Modifica Post
                 </h1>
             </div>
         </div>
