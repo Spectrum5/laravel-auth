@@ -15,7 +15,7 @@
 
         <div class="row md-4">
             <div class="col">
-                <form action="{{ route('admin.posts.store') }}" method="POST">
+                <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
@@ -52,8 +52,10 @@
                         class="form-control" 
                         id="img" 
                         name="img" 
-                        value="{{ old('img') }}"
-                        accept="image/png,image/jpeg,image/svg"
+                        accept="image/*"
+                        
+                        {{-- accept="image/png,image/jpeg,image/svg" --}}
+                        
                         {{-- Validazione frontend in qualche modo --}}
                         placeholder="Inserisci l'immagine in evidenza..">
                     </div>

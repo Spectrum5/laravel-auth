@@ -9,6 +9,7 @@ use App\Http\Requests\UpdatePostRequest;
 
 // Helpers
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -44,8 +45,10 @@ class PostController extends Controller
     public function store(StorePostRequest $request)
     {
         $data = $request->validated();
-
-        // Salvataggio img
+        if (array_key_exists('img', $data)) {
+            $imgPath = Storage::put('posts', $data['img']);
+            $data['img'] = $imgPath;
+        }
 
         $data['slug'] = Str::slug($data['title']);
         // dd($data);
