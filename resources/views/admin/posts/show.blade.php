@@ -15,13 +15,16 @@
                 Slug: {{ $post->slug }}
             </h6>
 
+            @if ($post->img)
+                <div>
+                    <img src="{{ asset('storage'.$post->img) }}" alt="">
+                </div>
+            @endif
+
             <p>
                 {{ $post->content }}
             </p>
 
-            <a href="{{ route('admin.posts.create') }}" class="btn btn-success">
-                Aggiungi articolo
-            </a>
         </div>
     </div>
 @endsection
