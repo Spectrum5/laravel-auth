@@ -43,6 +43,20 @@
                         placeholder="Inserisci il contenuto..">{{ old('title') }}</textarea>
                     </div>
 
+                    <div class="mb-3">
+                        <label for="img" class="form-label">
+                            Immagine in evidenza <span class="text-danger">*</span>
+                        </label>
+                        <input 
+                        type="file" 
+                        class="form-control" 
+                        id="img" 
+                        name="img" 
+                        value="{{ old('img') }}"
+                        {{-- Validazione frontend in qualche modo --}}
+                        placeholder="Inserisci l'immagine in evidenza..">
+                    </div>
+
                     <div>
                         <p>
                             N.B. i campi contrassegnati con <span class="text-danger">*</span> sono obbligatori

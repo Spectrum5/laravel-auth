@@ -45,6 +45,8 @@ class PostController extends Controller
     {
         $data = $request->validated();
 
+        // Salvataggio img
+
         $data['slug'] = Str::slug($data['title']);
         // dd($data);
         $newPost = Post::create($data);
