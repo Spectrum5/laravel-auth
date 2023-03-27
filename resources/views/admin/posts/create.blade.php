@@ -53,6 +53,7 @@
                         id="img" 
                         name="img" 
                         value="{{ old('img') }}"
+                        accept="image/png,image/jpeg,image/svg"
                         {{-- Validazione frontend in qualche modo --}}
                         placeholder="Inserisci l'immagine in evidenza..">
                     </div>
