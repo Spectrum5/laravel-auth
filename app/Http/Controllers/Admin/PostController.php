@@ -10,6 +10,10 @@ use App\Http\Requests\UpdatePostRequest;
 // Helpers
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+
+// Mails
+use App\Mail\NewPost;
 
 class PostController extends Controller
 {
@@ -53,6 +57,11 @@ class PostController extends Controller
         $data['slug'] = Str::slug($data['title']);
         // dd($data);
         $newPost = Post::create($data);
+
+        Mail::to([
+            'sergio@classe84.com', 
+            'alessio@classe84.com'
+        ])->send(new NewPost($newPost));
 
         return redirect()->route('admin.posts.show', $newPost->id)->with('success', 'Post aggiunto con successo!');
 
