@@ -99,6 +99,16 @@ class PostController extends Controller
     {
         $data = $request->validated();
 
+        if (array_key_exists('img', $data)) {
+            $imgPath = Storage::put('posts', $data['img']);
+            $data['img'] = $imgPath;
+
+            if ($post->img) {
+                // cancella il vecchio file
+                Storage::delete($post->img);
+            }
+        }
+
         $data['slug'] = Str::slug($data['title']);
 
         $post->update($data);

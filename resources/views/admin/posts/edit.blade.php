@@ -17,7 +17,7 @@
 
         <div class="row md-4">
             <div class="col">
-                <form action="{{ route('admin.posts.update', $post->id) }}" method="POST">
+                <form action="{{ route('admin.posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     @method('PUT')
@@ -45,6 +45,30 @@
                         name="content" 
                         required maxlength="4096"
                         placeholder="Inserisci il contenuto..">{{ old('content', $post->content) }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="img" class="form-label">
+                            Immagine in evidenza <span class="text-danger">*</span>
+                        </label>
+
+                        @if ($post->img)
+                            <div class="mb-2">
+                                <img src="{{ asset('storage'.$post->img) }}" alt="">
+                            </div>
+                        @endif
+
+                        <input 
+                        type="file" 
+                        class="form-control" 
+                        id="img" 
+                        name="img" 
+                        accept="image/*"
+                        
+                        {{-- accept="image/png,image/jpeg,image/svg" --}}
+                        
+                        {{-- Validazione frontend in qualche modo --}}
+                        placeholder="Inserisci l'immagine in evidenza..">
                     </div>
 
                     <div>
