@@ -53,6 +53,13 @@
                         </label>
 
                         @if ($post->img)
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" name="delete_img" id="delete_img">
+                                <label class="form-check-label" for="delete_img">
+                                    Cancella l'immagine in evidenza
+                                </label>
+                            </div>
+
                             <div class="mb-2">
                                 <img src="{{ asset('storage'.$post->img) }}" alt="">
                             </div>

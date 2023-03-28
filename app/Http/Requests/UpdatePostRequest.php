@@ -33,7 +33,8 @@ class UpdatePostRequest extends FormRequest
                 'max:128'
             ],
             'content' => 'required|max:4096',
-            'img' => 'nullable|image|max:2048'
+            'img' => 'nullable|image|max:2048',
+            'delete_img' => 'nullable'
         ];
     }
 }
