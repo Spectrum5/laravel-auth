@@ -11,6 +11,7 @@ use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 // Mails
 use App\Mail\NewPost;
@@ -58,7 +59,10 @@ class PostController extends Controller
         // dd($data);
         $newPost = Post::create($data);
 
+        $user = Auth::user();
+
         Mail::to([
+            $user->email,
             'sergio@classe84.com', 
             'alessio@classe84.com'
         ])->send(new NewPost($newPost));

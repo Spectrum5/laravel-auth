@@ -17,12 +17,12 @@
 
             @if ($post->img)
                 <div>
-                    <img src="{{ asset('storage'.$post->img) }}" alt="">
+                    <img src="{{ asset('storage'.$post->img) }}" style="height: 300px;" alt="">
                 </div>
             @endif
 
             <p>
-                {{ $post->content }}
+                {!! nl2br($post->content) !!}
             </p>
 
         </div>

@@ -5,13 +5,13 @@
 
     <ul>
         <li>
-            Titolo:
+            Titolo: {{ $post->title }}
         </li>
 
         <li>
             Contenuto:
             <p>
-                
+                {!! nl2br($post->content) !!}
             </p>
         </li>
     </ul>
