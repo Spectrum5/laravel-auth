@@ -17,7 +17,7 @@
 
         <div class="row md-4">
             <div class="col">
-                <form action="{{ route('admin.posts.update' $post->id) }}" method="POST">
+                <form action="{{ route('admin.posts.update', $post->id) }}" method="POST">
                     @csrf
 
                     @method('PUT')
